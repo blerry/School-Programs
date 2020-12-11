@@ -1,0 +1,7 @@
+Larry Delgado, CECS 274 Sec07
+
+What is the advantage and disadvantage of Hash Tables over Array-Based and Linked list data structures?
+
+A Hash Table is unordered and are a collection of elements that have key-value pairs. compared to Array-Based Lists and Linked Lists. The advantage is that a Hash Table has a quicker access or traversal of data. The disadvantage is that insertion and deletion can take longer depending on the hash function and collision.
+
+

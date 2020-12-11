@@ -1,0 +1,6 @@
+Larry Delgado, CECS 274 Sec07
+
+What is the advantage and disadvantage of Linked List compared with Array-Based data structures?
+
+The advantage of a Linked List is that adding and removing elements are constant time O(1) compared to Array-Based data structures and the size does not need to be specified.
+The disadvantage is that it takes linear time O(n) to traverse through the list of a Linked List.

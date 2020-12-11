@@ -1,0 +1,6 @@
+Larry Delgado, CECS 274 Sec07
+
+What is the advantage and disadvantage of Sorting and BinarySearch over BinarySearchTree and heaps data structures.
+
+Binary Search can possible be slower than Binary Search Tree since BST has a best-case run time of O(1). Binary Search is more useful in a sorted scenario however. Binary Search Tree also has better run time than Merge and Quick sort. The space complexity however is slightly better with sorting. Sorting carries a worst-case scenario space complexity of O(logn) whereas, BST has O(n).
+

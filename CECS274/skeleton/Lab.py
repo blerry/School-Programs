@@ -161,8 +161,8 @@ am.add_edge(2,3)
 am.add_edge(3,4)
 am.add_edge(4,1)
 am.add_edge(1,3)
-am.has_edge(1,2)
-am.has_edge(1,2)
+#am.has_edge(1,2)
+#am.has_edge(1,2)
 print(am)
 
 

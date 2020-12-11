@@ -1,0 +1,6 @@
+Larry Delgado, CECS 274 Sec07
+
+What is the advantage and disadvantage of BinarySearchTree over HashTable data structures.
+
+
+A balanced Binary Tree can be guaranteed to work in O(log n) and can have keys sorted with traversals. Implementation of BinarySearchTree is easier than hashing. There is not guarantee but a HashTable can have its operating running close to O(1) constant time. Sometimes HashTable would be preferred for unsorted conditions or if the input size is known.

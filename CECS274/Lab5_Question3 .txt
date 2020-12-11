@@ -1,0 +1,5 @@
+Larry Delgado, CECS 274 Sec07
+
+What is the advantage and disadvantage of BinaryHeap over BinarySearchTree data struc- tures.
+
+The advantage is that insertion of a Binary Heap is O(1) and can use dynamic arrays. The disadvantage is that the search for arbitrary elements for Binary Search is O(log(n)) which is faster than a heap's which is o(n). 
