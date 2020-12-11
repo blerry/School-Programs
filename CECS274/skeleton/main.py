@@ -64,28 +64,29 @@ def menu_bookstore_system() :
     option=""
     while option != '0':
         print("""
-        1 Load book catalog into sortedBookCatalog
-        2 Sort bookCatalog using Merge Sort
-        3 Sort bookCatalog using Quick Sort
-        4 Search by PreFix using Binary Search
-        5 Quick Sort Catalog using LinkedList
-        6 Merge Sort Catalog using LinkedList
-        
+        1 Load book catalog into book Catalog
+        2 Adjacency List BFS BookStore
+        3 Adjacency List DFS BookStore 
         """)
         '''
-        6 Remove a book by index from catalog
-        7 Add a book by index to shopping cart
-        8 Remove from the shopping cart
-        9 Search book by infix
-        10 Print Best Selling Book
-        11 Reverse order of shopping cart
-        12 Search books by title
-        13 Search book by prefix
-        14 Save to file using BF traversal
-        15 in-order
-        16 pre-order
-        17 post-order
-        18 Search Book by Prefix BestSellers
+        4 Sort bookCatalog using Merge Sort
+        5 Sort bookCatalog using Quick Sort
+        6 Search by PreFix using Binary Search
+        7 Quick Sort Catalog using LinkedList
+        8 Merge Sort Catalog using LinkedList
+        9 Remove a book by index from catalog
+        10 Add a book by index to shopping cart
+        11 Remove from the shopping cart
+        12 Search book by infix
+        13 Print Best Selling Book
+        14 Reverse order of shopping cart
+        15 Search books by title
+        16 Search book by prefix
+        17 Save to file using BF traversal
+        18 in-order
+        19 pre-order
+        20 post-order
+        21 Search Book by Prefix BestSellers
         r setRandomShoppingCart
         s setShoppingCart
         0 Return to main menu
@@ -99,66 +100,70 @@ def menu_bookstore_system() :
             file_name = input("Introduce the name of the file: ")
             bookStore.loadCatalog(file_name)
         elif option =="2":
+            pass
+        elif option =="3":
+            pass
+        elif option =="4":
             print("loading...")
             start_time = time.time()
             algorithms.merge_sort(bookStore.sortedBookCatalog)
             elapsed_time = time.time() - start_time
             print(f"Sort completed in {elapsed_time} seconds")
-        elif option =="3":
+        elif option =="5":
             print("loading...")
             start_time = time.time()
             algorithms.quick_sort(bookStore.sortedBookCatalog)
             elapsed_time = time.time() - start_time
             print(f"Sort completed in {elapsed_time} seconds")
-        elif option =="4":
+        elif option =="6":
             bookStore.binarySearchbyTitle(input("Enter a prefix: "))
-        elif option =="5":
+        elif option =="7":
             print("loading...")
             algorithms.quick_sort(bookStore.sortedBookCatalog)
             print("Sorted")
-        elif option =="6":
+        elif option =="8":
             print("loading...")
             bookStore.mergeSortedBooksDLList()
             print("Sorted")
 
-        elif option=="7":
+        elif option=="9":
             i = int(("Introduce the index to remove from catalog: "))
             bookStore.removeFromCatalog(i)
-        elif option=="8":
+        elif option=="10":
             i = int(input("Introduce the index to add to shopping cart: "))
             bookStore.addBookByIndex(i)
-        elif option=="9":
+        elif option=="11":
             bookStore.removeFromShoppingCart()
-        elif option=="10":
+        elif option=="12":
             infix = input("Introduce the query to search: ")
             bookStore.searchBookByInfix(infix)
-        elif option =="11":
-            bookStore.bestSellingBook()
-        elif option =="12":
-            bookStore.reverse()
         elif option =="13":
+            bookStore.bestSellingBook()
+        elif option =="14":
+            bookStore.reverse()
+        elif option =="15":
             t = input("Introduce the query to search: ")
             bookStore.searchBookByTitle(t)
-        elif option =="14":
+        elif option =="16":
             t = input("Introduce the query to search: ")
             bookStore.searchByPrefix(t)
-        elif option =="15":
+        elif option =="17":
             print("laoding")
             bookStore.indexSortedTitle.bf_traverse()
             print("Saved to File")
-        elif option =="16":
+        elif option =="18":
             print("laoding")
             bookStore.indexSortedTitle.in_order(bookStore.indexSortedTitle.r, [])
             print("Saved to File")
-        elif option =="17":
+        elif option =="19":
             print("laoding")
             bookStore.indexSortedTitle.pre_order(bookStore.indexSortedTitle.r, [])
             print("Saved to File")
-        elif option =="18":
+        elif option =="20":
             print("laoding")
             bookStore.indexSortedTitle.post_order(bookStore.indexSortedTitle.r, [])
             print("Saved to File")
-        elif option =="19":
+        elif option =="21":
             bookStore.searchByPrefix(input("Introduce the query to search: "), input("Enter K Size"))
             print("loading...")
         ''' 

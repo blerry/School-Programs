@@ -8,7 +8,6 @@ import ArrayQueue
 class AdjacencyMatrix(Graph):
     def __init__(self, n : int):
         self.n = n
-        #self.adj = np.zeros(n*n)
         self.a = self.new_boolean_matrix(self.n)
        
     def add_edge(self, i : int, j : int):
@@ -17,6 +16,9 @@ class AdjacencyMatrix(Graph):
         
     def remove_edge(self, i : int, j : int):
         # todo
+        if self.a[i][j] == False:
+            print("Does not Exist")
+            return None
         self.a[i][j] = False
                 
     def has_edge(self, i : int, j: int) ->bool:
@@ -29,17 +31,19 @@ class AdjacencyMatrix(Graph):
         for j in range(self.n):
             if self.has_edge(i,j):
                 l.append(j)
+                #print(i,j)
         return l
 
-    def in_edges(self, i) -> List:
+    def in_edges(self, j) -> List:
         # todo
         l = ArrayList.ArrayList()
         for i in range(self.n):
-            if has_edge(i,j):
+            if self.has_edge(i,j):
                 l.append(i)
+                #print(i,j)
         return l
 
-    def bfs(self, r : int):#dest:int
+    def bfs(self, r : int):
         # todo
         seen = np.zeros(self.n)
         q = ArrayQueue.ArrayQueue()
@@ -82,18 +86,7 @@ class AdjacencyMatrix(Graph):
     
     def new_boolean_matrix(self,n):
         return np.zeros([n, n], np.bool_)
-'''
-g = AdjacencyMatrix(6)
-g.add_edge(0, 1)
-g.add_edge(0, 2)
-g.add_edge(0, 3)
-g.add_edge(2, 4)
-g.add_edge(4, 5)
-g.add_edge(1, 4)
-g.add_edge(4, 5)
 
-print(g.dfs(0,1))
-'''
 
 
 

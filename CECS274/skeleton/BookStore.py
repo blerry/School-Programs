@@ -52,7 +52,7 @@ class BookStore:
 
                 self.indexKeys.add(key, i)
             i++
-    def similarGraph(size : int):
+    def similarGraph(self,size : int): #(self, k)
         with open(fileName) as f:
             i = 0
             for line in f:
@@ -60,10 +60,18 @@ class BookStore:
                 l = similar.split()
                 for k in range(1, len(l)):
                     j = indexKeys.find(l[k])
+                    print(j)
                     if j is not None:
                         similarGraph.add_edge(i,j)
                 i++
-            
+
+
+        print("Menu")
+        AdjacencyList.dfs2()
+        AdjanccyList.bfs2()
+
+        #bfs2(r1,r2) is index number of book and r2 is desired distance
+        #dfs(r1,r2) both are index of different books
         '''
             loadCatalog: Read the file filenName and creates the array list with all books.
                 book records are separated by  ^. The order is key, 

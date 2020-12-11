@@ -10,8 +10,8 @@ import ArrayQueue
 class AdjacencyList(Graph):
     def __init__(self, n : int):
         self.n = n
-        #self.adj = np.zeros(n, object)
-        self.adj = new_boolean_array(self.n)
+        self.adj = np.zeros(n, object)
+        #self.adj = self.new_boolean_array(self.n)
         for i in range(self.n):
             self.adj[i] = ArrayList.ArrayList()
             
@@ -63,7 +63,6 @@ class AdjacencyList(Graph):
         # todo
         seen = np.zeros(self.n)
         s = ArrayStack.ArrayStack()
-        #r=0#change
         s.push(r)
         while s.size() > 0:
             i = s.pop()
@@ -84,13 +83,46 @@ class AdjacencyList(Graph):
         return s
 
     def new_boolean_array(self, n):
-        return numpy.zeros(n, numpy.bool_)
+        return np.zeros(n, np.bool_)
 
-    def bfs2(r,k,d):
-        pass
-    def dfs2(r1: list,r2: list,d):
-        d = np.zeros(n)
+    def bfs2(self, r: int, k, d):
+        seen = np.zeros(self.n)
+        q = ArrayQueue.ArrayQueue()
+        q.add(r)
+        seen[r] = True
+        while q.size() > 0 and d > k:
+            i = q.remove()
+            ngh = self.out_edges(i)
+            for k in range(ngh.size()):
+                j = ngh.get(k)
+                if seen[j] == False:
+                    q.add(j)
+                    seen[j] = True
+            d=d+1
+
+    def dfs2(self, r1, r2, d: list):
+        #r1 source vertix r 2 destination vertex
+        d = np.zeros(self.n)
         d[r1] = 0
-        
+        seen = np.zeros(self.n)
+        s = ArrayStack.ArrayStack()
+        s.push(r)
+        while s.size() > 0:
+            i = s.pop()
+            print(i)
+            seen[i] = True
+            ngh = self.out_edges(i)
+            for j in range(ngh.size()):
+                if seen[ngh.get(j)] == False:
+                    s.push(ngh.get(j))
+                    d[j] = 1 + i
+                else:
+                    continue
+                if j == r2:
+                    return d[j]
+            return -1 #r1 and r2 not connected
+
+al = AdjacencyList(5)
+
 
 

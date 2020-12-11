@@ -155,16 +155,22 @@ print(c)
 import AdjacencyMatrix
 import AdjacencyList
 
+al = AdjacencyList.AdjacencyList(5)
+
+al.add_edge(1,2)
+'''
 am = AdjacencyMatrix.AdjacencyMatrix(5)
 am.add_edge(1,2)
 am.add_edge(2,3)
 am.add_edge(3,4)
 am.add_edge(4,1)
 am.add_edge(1,3)
-#am.has_edge(1,2)
-#am.has_edge(1,2)
-print(am)
-
+print(am.has_edge(1,2))
+print(am.has_edge(1,2))
+print(am.in_edges(3))
+print(am.out_edges(1))
+print(am.dfs(1))
+'''
 
 #when finding empty string, shortest book added we make it so it doesnt add anything
 #set paremeter to a to when opening file
