@@ -35,6 +35,7 @@ class BookStore:
         self.bonusCatalog = None
         #Graphs
         self.indexKeys = None
+        self.simlarGraph = None
         
 
     def loadCatalog(self, fileName : str) :
@@ -47,49 +48,62 @@ class BookStore:
             i = 0 #line number
             for line in f:
                 (key, title, group, rank, similar) = line.split("^")
-                sb = Book.Book(key, title, group, rank, similar)
-                self.bookCatalog.append(sb)
+                book = Book.Book(key, title, group, rank, similar)
+                self.bookCatalog.append(book)
 
                 self.indexKeys.add(key, i)
-            i++
-    def similarGraph(self,size : int): #(self, k)
+            i = i + 1
+            elapsed_time = time.time() - start_time
+            print(f"Loaded {self.bookCatalog.size()} books into bookCatalog in {elapsed_time} seconds")    
+        #self.similar_graph()
+
+    #def similar_graph(self,k : int):
+        self.similarGraph = AdjacencyList.AdjacencyList(self.bookCatalog.size())
+
         with open(fileName) as f:
+            start_time = time.time()
             i = 0
             for line in f:
                 (key, title, group, rank, similar) = line.split("^")
                 l = similar.split()
                 for k in range(1, len(l)):
-                    j = indexKeys.find(l[k])
-                    print(j)
+                    j = self.indexKeys.find(l[k])
+                    #print(j)
                     if j is not None:
-                        similarGraph.add_edge(i,j)
-                i++
+                        self.similarGraph.add_edge(i,j)
+                i = i + 1
+            elapsed_time = time.time() - start_time
+            print(f"Loaded {self.similarGraph.n} books into Graph in {elapsed_time} seconds")
 
-
-        print("Menu")
-        AdjacencyList.dfs2()
-        AdjanccyList.bfs2()
-
+        #print(self.similarGraph.k)
+        #print(self.similarGraph.adj[1].get(0))
+        print("""
+                Pick a graph book search
+                1 BFS
+                2 DFS
+                0 Main Menu
+                """)
+        option = input()
+        if option == "1":
+            index = int(input("Enter the index: "))
+            self.similarGraph.bfs2(index,self.similarGraph.out_edges(index),self.similarGraph.n)
+        elif option == "2":
+            self.similarGraph.dfs2(int(input("Enter the index: ")),int(input("Enter the index: ")),0)
+        
         #bfs2(r1,r2) is index number of book and r2 is desired distance
         #dfs(r1,r2) both are index of different books
-        '''
-            loadCatalog: Read the file filenName and creates the array list with all books.
-                book records are separated by  ^. The order is key, 
-                title, group, rank (number of copies sold) and similar books
-        '''
-        '''
+'''
+            #loadCatalog: Read the file filenName and creates the array list with all books.
+             #   book records are separated by  ^. The order is key, 
+              #  title, group, rank (number of copies sold) and similar books
         #ChainedHashTable
         self.indexTitle = None
         self.bookCatalog = DLList.DLList()
         self.indexSortedTitle = BinarySearchTree.BinarySearchTree()
-        '''
-        '''
         #Sort
         self.sortedBookCatalog = ArrayList.ArrayList()
         #Bonus
         self.bonusCatalog = DLList.DLList()
-        '''
-        '''
         with open(fileName) as f:
             # The following line is the time that the computation starts
             start_time = time.time()
@@ -98,8 +112,6 @@ class BookStore:
                 (key, title, group, rank, similar) = line.split("^")
                 s = Book.Book(key, title, group, rank, similar)
                 self.bookCatalog.append(s)
-        '''
-        '''
             #Loading Catalog for SortableBook
         with open(fileName) as g:
             start_time = time.time()
@@ -109,18 +121,13 @@ class BookStore:
                 self.sortedBookCatalog.append(sb)
                 #Bonus LinkedLists
                 self.bonusCatalog.append(sb)
-        '''
-                '''
         with open("books.txt") as g:
             for line in g:
                 (key, title, group, rank, similar) = line.split("^")
                 b = Book.Book(key, title, group, rank, similar)
                 self.indexSortedTitle.add(title,b)
-                '''
             #elapsed_time = time.time() - start_time
-            #print(f"Loading {self.sortedBookCatalog.size()} books in {elapsed_time} seconds")
-
-'''       
+            #print(f"Loading {self.sortedBookCatalog.size()} books in {elapsed_time} seconds")      
     def setRandomShoppingCart(self) :
         q = self.shoppingCart
         start_time = time.time()
@@ -141,11 +148,9 @@ class BookStore:
 
 
     def removeFromCatalog(self, i : int) :
-        '''
         #removeFromCatalog: Remove from the bookCatalog the book with the index i
         #input: 
          #   i: positive integer    
-        '''
         # The following line is the time that the computation starts
         start_time = time.time()
         self.bookCatalog.remove(i)
@@ -155,11 +160,9 @@ class BookStore:
         print(f"Remove book {i} from books in {elapsed_time} seconds")
 
     def addBookByIndex(self, i : int) :
-        '''
         #addBookByIndex: Inserts into the playlist the song of the list at index i 
         #input: 
             #i: positive integer    
-        '''
         # Validating the index. Otherwise it  crashes
         if i >= 0 and i < self.bookCatalog.size():
             start_time = time.time()
@@ -173,11 +176,9 @@ class BookStore:
 
    
     def searchBookByInfix(self, infix : str) :
-        '''
         #searchBookByInfix: Search all the books that contains infix
         #input: 
          #   infix: A string    
-        '''
         start_time = time.time()
         for i in range(self.bookCatalog.size()):
                 u = self.bookCatalog.get(i)
@@ -190,9 +191,7 @@ class BookStore:
         print(f"searchBookByInfix Completed in {elapsed_time} seconds")
 
     def removeFromShoppingCart(self) :
-        '''
         #removeFromShoppingCart: remove one book from the shoppung cart  
-        '''
         start_time = time.time()
         if self.shoppingCart.size() > 0:
             u = self.shoppingCart.remove()
@@ -264,11 +263,11 @@ class BookStore:
                 self.titleCatalog.append(str(book.title))
                 print(str(book.title))
             
-        #sortOption = input('''#Choose sorting option:
-                    #      1 Merge Sort titleCatalog 
-                     #       2 Quick Sort titleCatalog
-                      #      3 Binary Search titleCatalog
-                            ''')
+        sortOption = input("""Choose sorting option:
+                          1 Merge Sort titleCatalog 
+                          2 Quick Sort titleCatalog
+                          3 Binary Search titleCatalog
+                            """)
         
         if sortOption == "1":
             algorithms.merge_sort(self.titleCatalog)
@@ -288,7 +287,7 @@ class BookStore:
                     self.titleCatalog.remove(index)
                else:
                     return None
-            
+                    
     def mergeSortedBooks(self):
         start_time = time.time()
         print("Loading...")
@@ -333,5 +332,5 @@ class BookStore:
         else:
             self.shoppingCart.add(bookTitle)
             print("Added" + " " + "to shopping cart")
-'''                 
+'''               
     

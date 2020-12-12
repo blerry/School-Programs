@@ -158,6 +158,11 @@ import AdjacencyList
 al = AdjacencyList.AdjacencyList(5)
 
 al.add_edge(1,2)
+al.add_edge(2,3)
+al.add_edge(3,4)
+al.add_edge(4,1)
+al.add_edge(1,3)
+print(al.bfs(1))
 '''
 am = AdjacencyMatrix.AdjacencyMatrix(5)
 am.add_edge(1,2)

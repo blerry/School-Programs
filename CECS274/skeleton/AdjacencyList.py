@@ -34,7 +34,7 @@ class AdjacencyList(Graph):
         
     def out_edges(self, i) -> List:
         # todo
-        return adj[i]
+        return self.adj[i]
 
     def in_edges(self, i) -> List:
         # todo
@@ -52,7 +52,9 @@ class AdjacencyList(Graph):
         seen[r] = True
         while q.size() > 0:
             i = q.remove()
+            print(i)
             ngh = self.out_edges(i)
+            #print(ngh)
             for k in range(ngh.size()):
                 j = ngh.get(k)
                 if seen[j] == False:
@@ -85,28 +87,28 @@ class AdjacencyList(Graph):
     def new_boolean_array(self, n):
         return np.zeros(n, np.bool_)
 
-    def bfs2(self, r: int, k, d):
+    def bfs2(self, r, k, d):
         seen = np.zeros(self.n)
         q = ArrayQueue.ArrayQueue()
         q.add(r)
         seen[r] = True
-        while q.size() > 0 and d > k:
+        while q.size() > 0 and d < k:
             i = q.remove()
+            print(i)
             ngh = self.out_edges(i)
             for k in range(ngh.size()):
                 j = ngh.get(k)
                 if seen[j] == False:
                     q.add(j)
                     seen[j] = True
-            d=d+1
+            d = d+1
 
-    def dfs2(self, r1, r2, d: list):
-        #r1 source vertix r 2 destination vertex
+    def dfs2(self, r1, r2, d):
         d = np.zeros(self.n)
         d[r1] = 0
         seen = np.zeros(self.n)
         s = ArrayStack.ArrayStack()
-        s.push(r)
+        s.push(r1)
         while s.size() > 0:
             i = s.pop()
             print(i)
@@ -122,7 +124,6 @@ class AdjacencyList(Graph):
                     return d[j]
             return -1 #r1 and r2 not connected
 
-al = AdjacencyList(5)
 
 
 

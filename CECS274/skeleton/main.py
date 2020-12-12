@@ -65,8 +65,7 @@ def menu_bookstore_system() :
     while option != '0':
         print("""
         1 Load book catalog into book Catalog
-        2 Adjacency List BFS BookStore
-        3 Adjacency List DFS BookStore 
+        0 Return to Main Menu
         """)
         '''
         4 Sort bookCatalog using Merge Sort
