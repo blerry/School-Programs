@@ -24,15 +24,15 @@ class BookStore:
         #Queue
         self.shoppingCart = SLLQueue.SLLQueue()
         #indexTitle
-        self.indexTitle = ChainedHashTable.ChainedHashTable()
+        #self.indexTitle = ChainedHashTable.ChainedHashTable()
         #Sorted Title
-        self.indexSortedTitle = None
+        #self.indexSortedTitle = None
         #BinaryHeap
-        self.bestSellers = None
+        #self.bestSellers = None
         #Sorting
-        self.sortedBookCatalog = None
-        self.titleCatalog = None
-        self.bonusCatalog = None
+        #self.sortedBookCatalog = None
+        #self.titleCatalog = None
+        #self.bonusCatalog = None
         #Graphs
         self.indexKeys = None
         self.simlarGraph = None
@@ -41,18 +41,19 @@ class BookStore:
     def loadCatalog(self, fileName : str) :
         #Graphs
         self.indexKeys = ChainedHashTable.ChainedHashTable()
-        self.bookCatalog = ArrayList.ArrayList()
+        self.bookCatalog = DLList.DLList() #or arraylist
         
-        with open(fileName) as f:
+        with open(fileName, encoding ='utf-8') as f:
             start_time = time.time()
-            i = 0 #line number
+            count = 0 #line number
             for line in f:
                 (key, title, group, rank, similar) = line.split("^")
-                book = Book.Book(key, title, group, rank, similar)
-                self.bookCatalog.append(book)
+                b = Book.Book(key, title, group, rank, similar)
+                self.bookCatalog.append(b)
 
-                self.indexKeys.add(key, i)
-            i = i + 1
+                self.indexKeys.add(b.key, count)
+                #self.indexKeys.add(key, line)
+                count += 1
             elapsed_time = time.time() - start_time
             print(f"Loaded {self.bookCatalog.size()} books into bookCatalog in {elapsed_time} seconds")    
         #self.similar_graph()
@@ -60,37 +61,26 @@ class BookStore:
     #def similar_graph(self,k : int):
         self.similarGraph = AdjacencyList.AdjacencyList(self.bookCatalog.size())
 
-        with open(fileName) as f:
+        with open(fileName, encoding = 'utf-8') as f:
             start_time = time.time()
-            i = 0
+            count = 0
             for line in f:
                 (key, title, group, rank, similar) = line.split("^")
                 l = similar.split()
                 for k in range(1, len(l)):
                     j = self.indexKeys.find(l[k])
                     #print(j)
-                    if j is not None:
-                        self.similarGraph.add_edge(i,j)
-                i = i + 1
+                    if j != None: #is not
+                        self.similarGraph.add_edge(count,j)
+                count += 1
             elapsed_time = time.time() - start_time
             print(f"Loaded {self.similarGraph.n} books into Graph in {elapsed_time} seconds")
 
         #print(self.similarGraph.k)
         #print(self.similarGraph.adj[1].get(0))
-        print("""
-                Pick a graph book search
-                1 BFS
-                2 DFS
-                0 Main Menu
-                """)
-        option = input()
-        if option == "1":
-            index = int(input("Enter the index: "))
-            self.similarGraph.bfs2(index,self.similarGraph.out_edges(index),self.similarGraph.n)
-        elif option == "2":
-            self.similarGraph.dfs2(int(input("Enter the index: ")),int(input("Enter the index: ")),0)
         
-        #bfs2(r1,r2) is index number of book and r2 is desired distance
+            #self.similarGraph.bfs2(index,self.similarGraph.out_edges(index),self.similarGraph.n)
+                 #bfs2(r1,r2) is index number of book and r2 is desired distance
         #dfs(r1,r2) both are index of different books
 '''
             #loadCatalog: Read the file filenName and creates the array list with all books.

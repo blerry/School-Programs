@@ -154,7 +154,11 @@ print(c)
 #Lab 7 Larry Delgado
 import AdjacencyMatrix
 import AdjacencyList
+import ArrayQueue
 
+q = ArrayQueue.ArrayQueue()
+q.add(0)
+print(q)
 al = AdjacencyList.AdjacencyList(5)
 
 al.add_edge(1,2)
@@ -176,6 +180,7 @@ print(am.in_edges(3))
 print(am.out_edges(1))
 print(am.dfs(1))
 '''
+
 
 #when finding empty string, shortest book added we make it so it doesnt add anything
 #set paremeter to a to when opening file

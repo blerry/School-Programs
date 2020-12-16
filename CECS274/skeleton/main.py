@@ -65,6 +65,8 @@ def menu_bookstore_system() :
     while option != '0':
         print("""
         1 Load book catalog into book Catalog
+        2 BFS
+        3 DFS
         0 Return to Main Menu
         """)
         '''
@@ -99,9 +101,14 @@ def menu_bookstore_system() :
             file_name = input("Introduce the name of the file: ")
             bookStore.loadCatalog(file_name)
         elif option =="2":
-            pass
+            index = int(input("Enter the index: "))
+            k = int(input("Enter the degree: "))
+            #print( bookStore.similarGraph.bfs2(index,k))
+            traversal = bookStore.similarGraph.bfs2(index,k)
+            for i in range(1, len(traversal)):
+                        print(bookStore.bookCatalog.get(traversal[i]))
         elif option =="3":
-            pass
+            print( bookStore.similarGraph.dfs2(int(input("Enter the index r2: ")),int(input("Enter the index r1: "))) ) 
         elif option =="4":
             print("loading...")
             start_time = time.time()

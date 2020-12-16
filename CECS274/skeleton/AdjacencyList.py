@@ -34,6 +34,7 @@ class AdjacencyList(Graph):
         
     def out_edges(self, i) -> List:
         # todo
+        
         return self.adj[i]
 
     def in_edges(self, i) -> List:
@@ -87,43 +88,62 @@ class AdjacencyList(Graph):
     def new_boolean_array(self, n):
         return np.zeros(n, np.bool_)
 
-    def bfs2(self, r, k, d):
-        seen = np.zeros(self.n)
+    def bfs2(self, r: int, k: int):
+        d = 0
+        seen = self.new_boolean_array(self.n)
+        #seen = np.zeros(self.n, np.bool_)
         q = ArrayQueue.ArrayQueue()
         q.add(r)
         seen[r] = True
+        l = []
+        l.append(r)
         while q.size() > 0 and d < k:
             i = q.remove()
-            print(i)
+            #print(i)
             ngh = self.out_edges(i)
-            for k in range(ngh.size()):
-                j = ngh.get(k)
-                if seen[j] == False:
-                    q.add(j)
-                    seen[j] = True
+            #print(ngh)
+            for j in range(ngh.size()):
+                #print(ngh.size()) is 5 
+                x = ngh.get(j)
+                #print(j) j = 0
+                if seen[x] == False:
+                    q.add(x)
+                    l.append(x)
+                    seen[x] = True
             d = d+1
+        return l
 
-    def dfs2(self, r1, r2, d):
-        d = np.zeros(self.n)
+    def dfs2(self, r1: int, r2: int):
+        stack = ArrayStack.ArrayStack()
+        seen = self.new_boolean_array(self.n)
+        d = np.zeros(self.n,object)
         d[r1] = 0
-        seen = np.zeros(self.n)
-        s = ArrayStack.ArrayStack()
-        s.push(r1)
-        while s.size() > 0:
-            i = s.pop()
-            print(i)
+        l = []
+        stack.push(r1)
+        while stack.size() > 0:
+            i = stack.pop()
+            l.append(i)
+            #print(i)
             seen[i] = True
             ngh = self.out_edges(i)
             for j in range(ngh.size()):
                 if seen[ngh.get(j)] == False:
-                    s.push(ngh.get(j))
-                    d[j] = 1 + i
+                    stack.push(ngh.get(j))
+                    #d[j+1] = i + 1
+                    d[j] = d[i] + 1
                 else:
                     continue
                 if j == r2:
                     return d[j]
-            return -1 #r1 and r2 not connected
+        return -1 #r1 and r2 not connected
 
+'''
+al = AdjacencyList(5)
 
-
-
+al.add_edge(1,2)
+al.add_edge(2,3)
+al.add_edge(3,4)
+al.add_edge(4,1)
+al.add_edge(1,3)
+al.bfs2(1,0)
+'''

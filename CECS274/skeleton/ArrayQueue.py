@@ -17,12 +17,11 @@ class ArrayQueue(Queue):
         
         b = self.new_array(max(1,2*self.n))
         #self.n-1? or self.n?
-        for k in range(0, self.n):
+        for k in range(self.n):
             b[k] = self.a[(self.j+k) % len(self.a)]
         self.a = b
         self.j = 0
-        return self
-        pass
+        return self.a
 
 
     
@@ -49,7 +48,6 @@ class ArrayQueue(Queue):
 
         if len(self.a) >= 3*self.n: self.resize()
         return x
-        pass 
 
     def size(self) :
         return self.n
