@@ -8,8 +8,9 @@ import ArrayQueue
 class AdjacencyMatrix(Graph):
     def __init__(self, n : int):
         self.n = n
+        #This is for boolean matrix
         self.a = self.new_boolean_matrix(self.n)
-       
+        #self.a = np.zeros(self.n, object)
     def add_edge(self, i : int, j : int):
         # todo
         self.a[i][j] = True

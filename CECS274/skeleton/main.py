@@ -108,7 +108,7 @@ def menu_bookstore_system() :
             for i in range(1, len(traversal)):
                         print(bookStore.bookCatalog.get(traversal[i]))
         elif option =="3":
-            print( bookStore.similarGraph.dfs2(int(input("Enter the index r2: ")),int(input("Enter the index r1: "))) ) 
+            print(bookStore.similarGraph.dfs2(int(input("Enter the index: ")),int(input("Enter the index: ")))) 
         elif option =="4":
             print("loading...")
             start_time = time.time()

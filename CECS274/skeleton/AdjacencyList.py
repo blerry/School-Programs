@@ -99,13 +99,10 @@ class AdjacencyList(Graph):
         l.append(r)
         while q.size() > 0 and d < k:
             i = q.remove()
-            #print(i)
             ngh = self.out_edges(i)
-            #print(ngh)
             for j in range(ngh.size()):
                 #print(ngh.size()) is 5 
                 x = ngh.get(j)
-                #print(j) j = 0
                 if seen[x] == False:
                     q.add(x)
                     l.append(x)
@@ -116,7 +113,7 @@ class AdjacencyList(Graph):
     def dfs2(self, r1: int, r2: int):
         stack = ArrayStack.ArrayStack()
         seen = self.new_boolean_array(self.n)
-        d = np.zeros(self.n,object)
+        d = np.zeros(self.n)
         d[r1] = 0
         l = []
         stack.push(r1)
@@ -129,12 +126,13 @@ class AdjacencyList(Graph):
             for j in range(ngh.size()):
                 if seen[ngh.get(j)] == False:
                     stack.push(ngh.get(j))
-                    #d[j+1] = i + 1
-                    d[j] = d[i] + 1
+                    #d[j] = d[i] + 1
+                    d[ngh.get(j)] = d[i] + 1
+                    if ngh.get(j) == r2:
+                        return d[ngh.get(j)]
                 else:
                     continue
-                if j == r2:
-                    return d[j]
+                
         return -1 #r1 and r2 not connected
 
 '''
