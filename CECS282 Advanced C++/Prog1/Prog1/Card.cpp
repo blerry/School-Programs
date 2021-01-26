@@ -5,16 +5,13 @@
 #include "Card.h"
 #include <string>
 
-Card::Card{
-    private:
-        std::string cardType = "";
-        int cardNumber = 0;
-    
-    public void setCard(char, char);
-    public int getValue();
-    
-};
+//creating a card object
+Card::Card(char rank, char suite){
+    cardType = rank;
+    cardNumber = suite;
+}
 
-public Card( char r, char s){
+int Card::getValue() const{
     
-};
+}
+
