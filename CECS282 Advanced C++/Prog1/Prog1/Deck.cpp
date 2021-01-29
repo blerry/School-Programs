@@ -4,8 +4,5 @@
 //Due: 02/08/2021
 #include "Deck.h"
 #include <string>
-public class Deck{
-    private:
-        int o = 0;
-};
+
 
