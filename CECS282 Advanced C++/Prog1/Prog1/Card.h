@@ -19,7 +19,7 @@ public:
     int score();
     
 private:
-    char cardType; //suite of card(rank)
-    char cardNumber; //face value of card
+    char cardNum; //face value of card
+    char cardSuit; //suite of card
 };
 #endif /* Card_hpp */

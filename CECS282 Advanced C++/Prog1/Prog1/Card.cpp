@@ -4,17 +4,22 @@
 //Due: 02/08/2021
 #include "Card.h"
 #include <string>
+#include <iostream>
 //using std::string;
 //creating a card object
+Card::Card(){}
+
 Card::Card(char r, char s){
-    cardType = r;
-    cardNumber = s;
+    cardNum = r;
+    cardSuit = s;
 }
 
 int Card::getValue() const{
-    return 0;
+    return cardNum;
+}
+void Card::showCard(){
+    std::cout << cardNum;
+    std::cout << cardSuit;
 }
 
-Card::Card(): cardType(0), cardNumber(0)
-{}
 
