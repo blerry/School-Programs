@@ -1,0 +1,96 @@
+create schema "Lab One to Many";
+
+/*
+This is the parent table for this lab.  We could have created a parent above this that 
+captured information about the college, such as the name of the Dean, the location of
+the Dean's office, ... but I chose to start at this point in that chain.
+*/
+create table department (
+    college     varchar (50) not null,
+    name        varchar (50) not null,				--Of the department
+    chair       varchar (50) not null,				--Full name of dept chair
+    officeBldg  varchar (10) not null,				--varchar(3) might be enough
+    officeNo    integer      not null,
+    constraint department_pk primary key (name));		--I believe dept names unique across campus
+
+/*
+This is a few representative departments within CSULB.  I have two colleges represented here.
+Do not let this list stunt your creativity.  If you have other departments/colleges that you 
+want to work with, by all means, insert them here as well.
+
+Note that we can insert several records at a shot with one statement with this form of the 
+insert.  Good news is it's less typing.  Bad news is, they either all go in at once, or none
+of these rows goes in.
+*/
+insert into department (college, name, chair, officeBldg, officeNo)
+    values  ('Engineering', 'Chemical Engineering', 'Roger Lo', 'EN2', 100),
+            ('Engineering', 'Computer Engineering Computer Science', 'Mehrdad Aliasgari', 'ECS', 542),
+            ('Liberal Arts', 'English', 'Eileen Klink', 'MHB', 419);
+
+/*
+Within each department, there are many courses.  Just about every deparment has a 100 course
+that is the intro to that department's area of study.  So clearly, the course number is not
+unique.  But the combination of department name and course number is unique.  So, the relationship
+from department to course is identifying, of course.
+*/
+create table course (
+    departmentName  varchar(50)     not null,				--Notice that it gets a new name
+    courseName      varchar(50)     not null,
+    courseNumber    integer         not null,
+    description     varchar(2000)   not null,				--Never put this into the key
+    units           int             not null,
+    constraint      course_department_01 foreign key (departmentName)	--We role named name in department
+                    references department (name),
+    constraint      course_pk primary key (departmentName, courseNumber),
+    constraint      course_uk_01 unique (departmentName, courseName));	--This is a candidate key
+
+insert into course (departmentName, courseName, courseNumber, description, units)
+    values  ('Computer Engineering Computer Science', 'The Digital Information Age',
+                202, 'The introduction and use of common-place digital and 
+                      electronic devices and how this technology affects our society. 
+                      Topics include advances in 3D imaging, 3D printing, 
+                      Processors, Memory, Security and Privacy.', 3),
+            ('Computer Engineering Computer Science', 'Database Fundamentals',
+                323, 'Fundamental topics on database management. Topics include 
+                      entity-relationship models, database design, data definition 
+                      language, the relational model, data manipulation language, 
+                      database application programming and normalization.', 3),
+            ('English', 'Introduction to Creative Writing: Fiction',
+                205,  'Practice in the basic elements of fiction writing: character
+                       sketch, plot development, description, and dialog.', 3);
+
+create table sections (
+    departmentName VARCHAR(50) NOT NULL, -- Primary Key
+    courseNumber INTEGER NOT NULL, -- Foreign Key
+    sectionNumber INT NOT NULL, -- Primary Key
+    sectionYear INT NOT NULL,
+    semester VARCHAR(20),
+    instructor VARCHAR(50) NOT NULL,
+    days VARCHAR(10) NOT NULL,
+    startTime INT NOT NULL,
+    building VARCHAR(10) NOT NULL,
+    roomNo INT NOT NULL,
+    CONSTRAINT chk_semester CHECK (semester IN ('Fall', 'Spring', 'Summer', 'Winter')),
+    CONSTRAINT chk_days CHECK (days IN ('MW', 'TuThu', 'MWF', 'F', 'S')),
+    CONSTRAINT fk_sections FOREIGN KEY (departmentName, courseNumber) REFERENCES course (departmentName, courseNumber),
+    CONSTRAINT pk_sections PRIMARY KEY (departmentName, sectionNumber),
+    CONSTRAINT uk_01_sections UNIQUE (departmentName, courseNumber, sectionNumber)
+);
+
+insert into sections (departmentName, courseNumber, sectionNumber, sectionYear, semester, instructor, days, startTime, building, roomNo)
+    values('Computer Engineering Computer Science', 202, 303, 2021, 'Fall', 'David Brown', 'MW', 1230, 'ENGR', 302 );
+
+insert into sections (departmentName, courseNumber, sectionNumber, sectionYear, semester, instructor, days, startTime, building, roomNo)
+    values('Computer Engineering Computer Science', 323, 404, 2021, 'Spring', 'Mimi Opkins', 'TuThu', 1500, 'ENGR', 227 );
+
+insert into sections (departmentName, courseNumber, sectionNumber, sectionYear, semester, instructor, days, startTime, building, roomNo)
+    values('English', 205, 505, 2021, 'Fall', 'Bob Junior', 'MW', 900, 'LA', 555 );
+    --('College of Journalism', 1002, 2001, 2021, 'Fall', 'Mimi Opkins', 'TuThu', 1500, 'ENGR', 225),
+    --('College of Liberal Arts', 1003, 2002, 2021, 'Spring', 'Bob Junior', 'F', 900, 'LA', 505 );
+insert into sections (departmentName, courseNumber, sectionNumber, sectionYear, semester, instructor, days, startTime, building, roomNo)
+    values('Journalism', 101, 333, 2021, 'Fall', 'Will Smith', 'F', 1300, 'LA', 461 );
+
+--Let's look at the data
+select	dept.name, dept.chair, c.courseName, c.courseNumber, c.units
+from	department dept inner join course c on dept."NAME" = c.DEPARTMENTNAME
+order by dept."NAME", c.courseNumber;

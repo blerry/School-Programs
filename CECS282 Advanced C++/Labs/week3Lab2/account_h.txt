@@ -1,0 +1,20 @@
+// Members:Kenneth Su, Larry Delgado, Scott Herron
+// Week 3 Lab 2
+// 02/03/21 Time Demoed: 5:56PM
+#ifndef ACCOUNT_H
+#define ACCOUNT_H
+
+class Account
+{
+  private:
+    double balance;
+    
+  public:
+    Account();
+    Account(double bal);
+    void deposit(double amount);
+    void withdraw(double amount);
+    double get_balance();
+};
+
+#endif 

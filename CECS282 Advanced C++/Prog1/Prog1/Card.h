@@ -1,5 +1,5 @@
 //Larry Delgado
-//CECS-282-03
+//CECS-282-01
 //Prog 1 - Solitaire Prime
 //Due: 02/08/2021
 #ifndef CARD_H
@@ -11,15 +11,11 @@
 class Card{
 //constructors
 public:
-    Card(); //default constructor for a blank card
-    Card(char r, char s); //r rank, s suite
-    void setCard(char r, char s);
-    int getValue() const;
-    void showCard(); //display card
-    int score();
-    
+    //Constructors for blank and filled card
+    Card(), Card(char r, char s); //r rank, s suite
+    void setCard(char r, char s), showCard();
+    int getValue();
 private:
-    char cardNum; //face value of card
-    char cardSuit; //suite of card
+    char cardNum, cardSuit; //rank and suite of card
 };
 #endif /* Card_hpp */
