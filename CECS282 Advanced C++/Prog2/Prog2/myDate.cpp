@@ -5,8 +5,13 @@
 #include <iostream>
 #include <string>
 #include "myDate.h"
-
-myDate::myDate(){}
+int g2J(int month, int day, int year);
+void J2G(int JD, int &month, int &day, int &year);
+myDate::myDate(){
+    month = 1;
+    day = 1;
+    year = 2000;
+}
 
 myDate::myDate(int M, int D, int Y){
     
@@ -23,18 +28,20 @@ void myDate::decreaseDate(int N){
 int myDate::daysBetween(myDate D){
     return 0;
 }
-int myDate::getMonth(){
-    return 0;
-}
-int myDate::getDay(){
-    return 0;
-}
-int myDate::getYear(){
-    return 0;
-}
+int myDate::getMonth(){ return month; }
+int myDate::getDay(){ return day; }
+int myDate::getYear(){ return year; }
 int myDate::dayOfYear(){
-    return 0;
-}
+    return year; }
 std::string myDate::dayName(){
     return "";
+}
+int g2J(int month, int day, int year){
+    int i = year;
+    int j = month;
+    int k = day;
+    
+}
+void J2G(int JD, int &month, int &day, int &year){
+    
 }

@@ -14,6 +14,7 @@ class myDate{
         int daysBetween(myDate D);
         int getMonth(), getDay(), getYear(), dayOfYear();
         std::string dayName();
+        bool equals(myDate date), isLeapY(int), isValid(int, int, int);
     private:
         int month, day, year;
 };
