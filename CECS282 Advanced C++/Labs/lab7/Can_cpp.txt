@@ -1,0 +1,32 @@
+#include <iostream>
+#include "Can.h"
+using namespace std;
+
+Can::Can()
+{
+  name = "empty";
+  weight = 0;
+
+}
+
+Can::Can(int w,string n)
+{
+  weight = w;
+  name = n;
+}
+
+int Can::getWeight()
+{
+  return weight;
+}
+
+void Can::display()
+{
+  cout << weight << " ounce can of " << name << "\n";
+}
+
+
+
+string Can::getName(){
+  return name;
+}

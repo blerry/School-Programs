@@ -1,0 +1,59 @@
+//Jafet Oidor, Larry Delgado, Soksery Chan
+//Class (CECS 282-03)
+//Week 5 Lab 2 - Stretch Can
+//Due Date: 2/17/2021
+//Demo Time: 6:55PM
+#include <iostream>
+#include <string>
+using namespace std;
+#include "Can.h"
+void pour(Can &Can1,Can &Can2);
+Can mix( Can Can1, Can Can2);
+void stretch(Can &Can1, int expand);
+
+int main() 
+{ 
+     Can c1(15, "Peaches");
+     Can c2(20, "Peas");
+     Can c3(24, "soup");
+     Can c4;
+     c4 = mix(c1,c3); // c4 will have a mixture of c1 and c3. c1 and c3 remain unchanged
+     pour(c1,c2); // pour c1 into c2. c1 will be empty
+     //c3 = stretch(c3,20); // stretch c3 by 20 ounces
+     cout << "C1 - ";
+     c1.display(); // empty:0
+     cout << "C2 - ";
+     c2.display(); // Peas,Peaches:35
+     cout << "C3 - ";
+     c3.display(); // soup:44
+     cout << "C4 - ";
+     c4.display(); // Peaches, soup:39
+
+     return 0;
+}
+
+
+Can mix(Can Can1,Can Can2){
+
+    int weight1 = Can1.getWeight();
+    string name1 = Can1.getName();
+    int weight2 = Can2.getWeight();
+    string name2 = Can2.getName();
+    name1 = name1 + ", " +  name2;
+    weight1 += weight2;
+    Can can(weight1, name1);
+    //can = Can1.getWeight() + Can2.getWeight();
+    return can;
+    
+}
+void pour(Can &Can1,Can &Can2){
+  Can1 = mix(Can1,Can2);
+  Can2 = Can();
+
+  //return Can2;
+  
+}
+
+void stretch(Can &Can1, int expand){
+  
+}
