@@ -1,0 +1,362 @@
+[2021-02-22 19:21:16 EST] iverilog '-Wall' design.sv testbench.sv  && unbuffer vvp a.out  
+Test case           0
+aluop = 000	a = 1100	b = 0011	y = 1111
+c = 0, n = 1, z= 0, p = 0
+
+
+Test case           1
+aluop = 000	a = 0101	b = 1001	y = 1110
+c = 0, n = 1, z= 0, p = 1
+
+
+Test case           2
+aluop = 000	a = 1101	b = 0000	y = 1101
+c = 0, n = 1, z= 0, p = 1
+
+
+Test case           3
+aluop = 000	a = 1011	b = 1010	y = 0101
+c = 1, n = 0, z= 0, p = 0
+
+
+Test case           4
+aluop = 000	a = 1000	b = 1101	y = 0101
+c = 1, n = 0, z= 0, p = 0
+
+
+Test case           5
+aluop = 000	a = 0001	b = 0000	y = 0001
+c = 0, n = 0, z= 0, p = 1
+
+
+Test case           6
+aluop = 000	a = 1100	b = 1011	y = 0111
+c = 1, n = 0, z= 0, p = 1
+
+
+Test case           7
+aluop = 000	a = 0100	b = 0000	y = 0100
+c = 0, n = 0, z= 0, p = 1
+
+
+Test case           8
+aluop = 000	a = 1001	b = 1001	y = 0010
+c = 1, n = 0, z= 0, p = 1
+
+
+Test case           9
+aluop = 001	a = 1101	b = 0000	y = 1110
+c = 0, n = 1, z= 0, p = 1
+
+
+Test case          10
+aluop = 001	a = 1101	b = 0100	y = 1110
+c = 0, n = 1, z= 0, p = 1
+
+
+Test case          11
+aluop = 001	a = 1100	b = 1000	y = 1101
+c = 0, n = 1, z= 0, p = 1
+
+
+Test case          12
+aluop = 001	a = 1111	b = 0100	y = 0000
+c = 1, n = 0, z= 1, p = 0
+
+
+Test case          13
+aluop = 001	a = 1101	b = 1101	y = 1110
+c = 0, n = 1, z= 0, p = 1
+
+
+Test case          14
+aluop = 001	a = 0110	b = 1101	y = 0111
+c = 0, n = 0, z= 0, p = 1
+
+
+Test case          15
+aluop = 001	a = 0110	b = 1010	y = 0111
+c = 0, n = 0, z= 0, p = 1
+
+
+Test case          16
+aluop = 001	a = 0100	b = 1100	y = 0101
+c = 0, n = 0, z= 0, p = 0
+
+
+Test case          17
+aluop = 001	a = 1011	b = 0010	y = 1100
+c = 0, n = 1, z= 0, p = 0
+
+
+Test case          18
+aluop = 010	a = 0101	b = 0011	y = 0001
+c = 0, n = 0, z= 0, p = 1
+
+
+Test case          19
+aluop = 010	a = 1001	b = 0111	y = 0001
+c = 0, n = 0, z= 0, p = 1
+
+
+Test case          20
+aluop = 010	a = 0001	b = 0100	y = 0000
+c = 0, n = 0, z= 1, p = 0
+
+
+Test case          21
+aluop = 010	a = 1011	b = 1010	y = 1010
+c = 0, n = 1, z= 0, p = 0
+
+
+Test case          22
+aluop = 010	a = 1101	b = 0000	y = 0000
+c = 0, n = 0, z= 1, p = 0
+
+
+Test case          23
+aluop = 010	a = 1110	b = 1000	y = 1000
+c = 0, n = 1, z= 0, p = 1
+
+
+Test case          24
+aluop = 010	a = 1010	b = 0101	y = 0000
+c = 0, n = 0, z= 1, p = 0
+
+
+Test case          25
+aluop = 010	a = 0101	b = 0110	y = 0100
+c = 0, n = 0, z= 0, p = 1
+
+
+Test case          26
+aluop = 010	a = 0011	b = 1000	y = 0000
+c = 0, n = 0, z= 1, p = 0
+
+
+Test case          27
+aluop = 011	a = 1001	b = 0101	y = 1101
+c = 0, n = 1, z= 0, p = 1
+
+
+Test case          28
+aluop = 011	a = 1011	b = 0000	y = 1011
+c = 0, n = 1, z= 0, p = 1
+
+
+Test case          29
+aluop = 011	a = 1001	b = 0010	y = 1011
+c = 0, n = 1, z= 0, p = 1
+
+
+Test case          30
+aluop = 011	a = 0011	b = 1000	y = 1011
+c = 0, n = 1, z= 0, p = 1
+
+
+Test case          31
+aluop = 011	a = 1001	b = 0101	y = 1101
+c = 0, n = 1, z= 0, p = 1
+
+
+Test case          32
+aluop = 011	a = 1000	b = 1010	y = 1010
+c = 0, n = 1, z= 0, p = 0
+
+
+Test case          33
+aluop = 011	a = 0000	b = 0010	y = 0010
+c = 0, n = 0, z= 0, p = 1
+
+
+Test case          34
+aluop = 011	a = 1111	b = 1101	y = 1111
+c = 0, n = 1, z= 0, p = 0
+
+
+Test case          35
+aluop = 011	a = 1000	b = 1100	y = 1100
+c = 0, n = 1, z= 0, p = 0
+
+
+Test case          36
+aluop = 100	a = 0110	b = 0001	y = 0111
+c = 0, n = 0, z= 0, p = 1
+
+
+Test case          37
+aluop = 100	a = 1011	b = 0101	y = 1110
+c = 0, n = 1, z= 0, p = 1
+
+
+Test case          38
+aluop = 100	a = 0110	b = 1010	y = 1100
+c = 0, n = 1, z= 0, p = 0
+
+
+Test case          39
+aluop = 100	a = 1010	b = 1011	y = 0001
+c = 0, n = 0, z= 0, p = 1
+
+
+Test case          40
+aluop = 100	a = 1100	b = 1011	y = 0111
+c = 0, n = 0, z= 0, p = 1
+
+
+Test case          41
+aluop = 100	a = 0010	b = 1011	y = 1001
+c = 0, n = 1, z= 0, p = 0
+
+
+Test case          42
+aluop = 100	a = 1110	b = 1011	y = 0101
+c = 0, n = 0, z= 0, p = 0
+
+
+Test case          43
+aluop = 100	a = 0100	b = 0001	y = 0101
+c = 0, n = 0, z= 0, p = 0
+
+
+Test case          44
+aluop = 100	a = 0111	b = 1011	y = 1100
+c = 0, n = 1, z= 0, p = 0
+
+
+Test case          45
+aluop = 101	a = 1011	b = 0110	y = 0000
+c = 0, n = 0, z= 1, p = 0
+
+
+Test case          46
+aluop = 101	a = 1011	b = 0110	y = 0000
+c = 0, n = 0, z= 1, p = 0
+
+
+Test case          47
+aluop = 101	a = 1001	b = 1111	y = 0000
+c = 0, n = 0, z= 1, p = 0
+
+
+Test case          48
+aluop = 101	a = 0001	b = 0001	y = 0000
+c = 0, n = 0, z= 1, p = 0
+
+
+Test case          49
+aluop = 101	a = 0110	b = 1010	y = 0000
+c = 0, n = 0, z= 1, p = 0
+
+
+Test case          50
+aluop = 101	a = 1010	b = 0100	y = 0000
+c = 0, n = 0, z= 1, p = 0
+
+
+Test case          51
+aluop = 101	a = 0111	b = 1011	y = 0000
+c = 0, n = 0, z= 1, p = 0
+
+
+Test case          52
+aluop = 101	a = 1100	b = 0011	y = 0000
+c = 0, n = 0, z= 1, p = 0
+
+
+Test case          53
+aluop = 101	a = 1101	b = 0100	y = 0000
+c = 0, n = 0, z= 1, p = 0
+
+
+Test case          54
+aluop = 110	a = 0100	b = 1100	y = 1000
+c = 0, n = 1, z= 0, p = 1
+
+
+Test case          55
+aluop = 110	a = 1010	b = 1000	y = 0100
+c = 1, n = 0, z= 0, p = 1
+
+
+Test case          56
+aluop = 110	a = 0001	b = 1111	y = 0010
+c = 0, n = 0, z= 0, p = 1
+
+
+Test case          57
+aluop = 110	a = 1111	b = 1110	y = 1110
+c = 1, n = 1, z= 0, p = 1
+
+
+Test case          58
+aluop = 110	a = 1011	b = 1011	y = 0110
+c = 1, n = 0, z= 0, p = 0
+
+
+Test case          59
+aluop = 110	a = 0100	b = 1110	y = 1000
+c = 0, n = 1, z= 0, p = 1
+
+
+Test case          60
+aluop = 110	a = 1111	b = 0011	y = 1110
+c = 1, n = 1, z= 0, p = 1
+
+
+Test case          61
+aluop = 110	a = 0100	b = 1001	y = 1000
+c = 0, n = 1, z= 0, p = 1
+
+
+Test case          62
+aluop = 110	a = 1001	b = 0010	y = 0010
+c = 1, n = 0, z= 0, p = 1
+
+
+Test case          63
+aluop = 111	a = 1010	b = 0001	y = 0000
+c = 0, n = 0, z= 1, p = 0
+
+
+Test case          64
+aluop = 111	a = 0100	b = 0001	y = 0000
+c = 0, n = 0, z= 1, p = 0
+
+
+Test case          65
+aluop = 111	a = 1001	b = 0000	y = 0000
+c = 0, n = 0, z= 1, p = 0
+
+
+Test case          66
+aluop = 111	a = 1100	b = 1001	y = 0000
+c = 0, n = 0, z= 1, p = 0
+
+
+Test case          67
+aluop = 111	a = 1110	b = 1011	y = 0000
+c = 0, n = 0, z= 1, p = 0
+
+
+Test case          68
+aluop = 111	a = 0001	b = 1100	y = 0000
+c = 0, n = 0, z= 1, p = 0
+
+
+Test case          69
+aluop = 111	a = 0001	b = 1110	y = 0000
+c = 0, n = 0, z= 1, p = 0
+
+
+Test case          70
+aluop = 111	a = 1011	b = 1110	y = 0000
+c = 0, n = 0, z= 1, p = 0
+
+
+Test case          71
+aluop = 111	a = 1011	b = 1100	y = 0000
+c = 0, n = 0, z= 1, p = 0
+
+
+Done

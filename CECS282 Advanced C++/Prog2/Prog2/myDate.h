@@ -1,7 +1,7 @@
-//Larry Delgado
-//CECS-282-01
-//Prog 2 - myDate Object
-//Due: 02/22/2021
+// Larry Delgado
+// CECS-282-01
+// Prog 2 - myDate Object
+// Due: 02/22/2021
 
 #ifndef myDate_h
 #define myDate_h
@@ -13,11 +13,10 @@ class myDate{
         void display(), increaseDate(int N), decreaseDate(int N);
         int daysBetween(myDate D);
         int getMonth(), getDay(), getYear(), dayOfYear();
-        int getYearOffset();
-        int G2J(int month, int day, int year);
+        //int getYearOffset();
         std::string dayName();
-        bool dateEquals(myDate date), isLeapY(int), isValidDate(int, int, int);
-        myDate J2G(int jDate, int &month, int &day, int &year);
+        //bool dateEquals(myDate date);
+        bool isLeapY(int), isValidDate(int, int, int);
         //~myDate();
     private:
         int month, day, year;

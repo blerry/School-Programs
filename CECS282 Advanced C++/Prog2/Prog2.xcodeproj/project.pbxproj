@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CC5E778A25D31ED600DC7A42 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5E778925D31ED600DC7A42 /* main.cpp */; };
 		CC5E779325D3202800DC7A42 /* myDate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5E779125D3202800DC7A42 /* myDate.cpp */; };
+		CCAE286225E204BA00366B02 /* testDate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CCAE286125E204BA00366B02 /* testDate.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,9 +25,9 @@
 
 /* Begin PBXFileReference section */
 		CC5E778625D31ED600DC7A42 /* Prog2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Prog2; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC5E778925D31ED600DC7A42 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		CC5E779125D3202800DC7A42 /* myDate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = myDate.cpp; sourceTree = "<group>"; };
 		CC5E779225D3202800DC7A42 /* myDate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myDate.h; sourceTree = "<group>"; };
+		CCAE286125E204BA00366B02 /* testDate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testDate.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +60,8 @@
 		CC5E778825D31ED600DC7A42 /* Prog2 */ = {
 			isa = PBXGroup;
 			children = (
-				CC5E778925D31ED600DC7A42 /* main.cpp */,
 				CC5E779125D3202800DC7A42 /* myDate.cpp */,
+				CCAE286125E204BA00366B02 /* testDate.cpp */,
 				CC5E779225D3202800DC7A42 /* myDate.h */,
 			);
 			path = Prog2;
@@ -123,8 +123,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC5E778A25D31ED600DC7A42 /* main.cpp in Sources */,
 				CC5E779325D3202800DC7A42 /* myDate.cpp in Sources */,
+				CCAE286225E204BA00366B02 /* testDate.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
