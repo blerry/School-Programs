@@ -3,6 +3,7 @@
 // Prog 2 - myDate Object
 // Due: 02/22/2021
 
+//Added toString Function
 #ifndef myDate_h
 #define myDate_h
 #include <stdio.h>
@@ -15,6 +16,7 @@ class myDate{
         int getMonth(), getDay(), getYear(), dayOfYear();
         //int getYearOffset();
         std::string dayName();
+    std::string toString();
         //bool dateEquals(myDate date);
         bool isLeapY(int), isValidDate(int, int, int);
         //~myDate();

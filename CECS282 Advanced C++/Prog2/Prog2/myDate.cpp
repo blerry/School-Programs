@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include "myDate.h"
+//Fixed Display and DayName
 
 myDate::myDate(){
     month = 5;
@@ -82,24 +83,50 @@ int G2J(int month, int day, int year){
         return jDate;
 }
 void myDate::display(){
+    //check display, drecrease, increase or dayofyear
+    
     int jd = G2J(month, day, year);
     int index = 0;
     std::string m = "";
-    std::string months[] = { "January", "February", "March", "April", "May",
-                            "June", "July", "August", "September", "October",
-                            "November", "December" };
-    index = jd%12;
-    m = months[index];
+        if (month == 1)
+            m = "January";
+        else if (month == 2)
+            m = "February";
+        else if (month == 3)
+            m = "March";
+        else if (month == 4)
+            m = "April";
+        else if (month == 5)
+            m = "May";
+        else if (month == 6)
+            m = "June";
+        else if (month == 7)
+            m = "July";
+        else if (month == 8)
+            m = "August";
+        else if (month == 9)
+            m = "September";
+        else if (month == 10)
+            m = "October";
+        else if (month == 11)
+            m = "November";
+        else if (month == 12)
+            m = "December";
+    //std::string months[] = { "January", "February", "March", "April", "May","June", "July", //"August","September","October","November", "December" };
+    //index = jd%12;
+    //m = months[index];
     std::cout << m + " " + std::to_string(day) + ", " + std::to_string(year);
     //arr[month - 1]
 }
 void myDate::increaseDate(int N){
-        int jd = N + G2J(month,day, year);
+        int jd = G2J(month,day, year);
+        jd +=N;
         J2G(jd, month, day, year);
 }
 void myDate::decreaseDate(int N){
-        int jd = G2J(month,day,year) - N;
-        J2G(jd, month, day, year);
+    int jd = G2J(month,day,year);
+    jd -= N;
+    J2G(jd, month, day, year);
 }
 
 int myDate::daysBetween(myDate D){
@@ -117,17 +144,36 @@ int myDate::getDay(){ return day; }
 int myDate::getYear(){ return year; }
 int myDate::dayOfYear(){
     int firstDay = G2J(1, 1, year);
-        int jd = G2J(month, day, year);
-        return jd - firstDay + 1;
+    int jd = G2J(month, day, year);
+    return jd - firstDay + 1;
 }
 std::string myDate::dayName(){
-    int index = 0;
     std::string stringDay = "";
-    std::string daysArray[] = {"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
     int jd = G2J(month,day,year);
-    index = jd % 7;
-    stringDay = daysArray[index];
-    return stringDay;
+    int temp = jd % 7;
+        if(temp == 0){
+            stringDay = "Monday";
+        }
+        else if (temp == 1) {
+            stringDay = "Tuesday";
+        }
+        else if (temp == 2) {
+            stringDay = "Wednesday";
+        }
+        else if (temp == 3) {
+            stringDay = "Thursday";
+        }
+        else if (temp == 4) {
+            stringDay= "Friday";
+        }
+        else if (temp == 5) {
+            stringDay = "Saturday";
+        }
+        else {
+            stringDay = "Sunday";
+        }
+        return stringDay;    
+    //stringDay = daysArray[index];
 }
 
 bool myDate::isLeapY(int y) {
@@ -154,4 +200,32 @@ bool myDate::isValidDate(int m, int d, int y){
     }
     return true;
 }
+std::string myDate::toString(){
+    std::string m = "";
+    if (month == 1)
+        m = "January";
+    else if (month == 2)
+        m = "February";
+    else if (month == 3)
+        m = "March";
+    else if (month == 4)
+        m = "April";
+    else if (month == 5)
+        m = "May";
+    else if (month == 6)
+        m = "June";
+    else if (month == 7)
+        m = "July";
+    else if (month == 8)
+        m = "August";
+    else if (month == 9)
+        m = "September";
+    else if (month == 10)
+        m = "October";
+    else if (month == 11)
+        m = "November";
+    else if (month == 12)
+        m = "December";
 
+    return m + " " + std::to_string(day) + ", " + std::to_string(year);
+}

@@ -27,15 +27,8 @@ class hash_table:
     def linear_probe(self, value, start_index):
 		# TODO
 		# hint: empty spots in tuples are labeled as None
-        m = start_index
-        for index in range(self.size):
-            if self.table[m] is None:
-                self.insert(value,m)
-                break
-            elif self.table[m] is not None:
-                m = m + 1
-                if m >= self.size:
-                    m = 0
+        start_index = value % self.size
+        return start_index
 
 	# function name: insert
 	# input: value- value to be inserted
@@ -46,9 +39,17 @@ class hash_table:
     def hash(self, value):
 		# TODO
 		# hint: empty spots in tuples are labeled as None
-        index = value % self.size
-        self.linear_probe(value,index)
-
+        #i = value % self.size
+        #self.linear_probe(value,index)
+        m = self.linear_probe(value, 0)
+        for index in range(self.size):
+            if self.table[m] is None:
+                self.insert(value,m)
+                break
+            elif self.table[m] is not None:
+                m = m + 1
+                if m >= self.size:
+                    m = 0
 	# Already completed function!
     def get_table(self):
         return self.table
@@ -67,7 +68,7 @@ class hash_table:
 # otherwise the grading script will pick it up! You WILL lose points!
 # please note that these are not the only test cases that will be run
 """**********************************************************************"""
-
+'''
 def checker(expected, actual):
     if expected == actual:
         print("CORRECT!")
@@ -98,6 +99,7 @@ expected2 = (45, None, None, None, 52, 5, 30, 95)
 
 checker(expected2, test2.get_table())
 
+'''
 
 
 
