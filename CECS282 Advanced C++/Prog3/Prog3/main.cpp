@@ -77,9 +77,9 @@ int main() {
 
 //fill array with students from dyamic memory
 void populate(Student *s[]){
-    string sNames[] = {"Tom Thumb","Fred Flintstone","Sponge Bob"};
-    string hTowns[] = {"Small Ville","Bedrock","Bikini Bottom"};
-    char grades[] = {'A','B','C','D','F'};
+    string sNames[] = {"Tom Thumb ","Fred Flintstone ","Sponge Bob ","Timmy Turner ", "Danny Phantom ", "Mickey Mouse ", "Johnny Bravo ", "Peter Pan ","Bugs Bunny ", "Homer Simpson "};
+    string hTowns[] = {"Small Ville ","Bedrock ","Bikini Bottom ","Dimmsdale ","Amity Park ","Disneyland ","Aron City ","Neverland ","Toon Town ","Springfield ",};
+    char grades[] = {'A','A','B','B','C','C','D','D','F','F'};
     srand(NULL);
     for(int p = 0; p < 10; p++){
         int rGrade = rand() % 9;
@@ -91,7 +91,7 @@ void populate(Student *s[]){
         s[p] = new Student;
         
         strcpy(s[p] -> name, sNames[p].c_str());
-        s[p] -> studentID = rand() % 9;
+        s[p] -> studentID = rand() %9000 + 1000;
         s[p] -> grade = grades[rGrade];
         s[p] -> bDay = myDate(rMonth, rDay, rYear);
         s[p] -> homeTown = hTowns[rTown];
@@ -147,8 +147,8 @@ void sortBirthday(Student *s[]){
             d2 = s[j+1] -> bDay.getDay();
             y1 = s[j] -> bDay.getYear();
             y2 = s[j+1] -> bDay.getYear();
-            jd1 = s[j] -> G2J(m1,d1,y1);
-            jd2 = s[j+1] -> G2J(m2,d2,y2);
+            jd1 = G2J(m1,d1,y1);
+            jd2 = G2J(m2,d2,y2);
             if (jd1 > jd2)
                 swap(s[j], s[j+1]);
         }
@@ -170,9 +170,9 @@ void datesBetween(myDate d){
  //for this one use left keyword and setw(int n)
  void display(Student* s[]) {
      cout << setw(10) << left << "Name:" << setw(15) << left << "Student ID:" << setw(15) << left << "Grade:" << setw(20) << left << "Birthday:" << setw(20) << left << "Home Town:" << endl;
-    cout << "-------------------------------------------------" << endl;
+    cout << "------------------------------------------------------------------------------" << endl;
      for (int i = 0; i < 10; i++) {
-         cout << setw(10) << left << s[i]->name << setw(15) << left << s[i]->studentID << setw(15) << left << s[i]->grade << setw(20) << left << s[i]->bDay.toString() << setw(21) << left << s[i]->homeTown << endl;
+         cout << setw(20) << left << s[i]->name << setw(10) << left << s[i]->studentID << setw(10) << left << s[i]->grade << setw(20) << left << s[i]->bDay.toString() << setw(21) << left << s[i]->homeTown << endl;
      }
 
  }

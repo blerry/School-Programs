@@ -1,0 +1,53 @@
+// Frank Alvarez, Larry Delgado,  Tony Tran, Jafet Oidor Ortega
+//Week 8 Lab 1
+//Demo Time: 6:28PM
+#include <iostream>
+using namespace std;
+
+int strlen(char *str);
+char * strcpy(char *dest, char *source);
+char * strcat(char *dest, char *source);
+
+int main() {
+
+  char name[10] = "Adrian";
+  char * ptr = name;
+  char cpyName[10] = "Gomez";
+  int a = strlen(name);
+  cout<<"Name: " <<name << endl;
+  cout<<"Length: "<< a << endl;
+  cout << strcpy(cpyName,ptr);
+  cout<< "Copy name = " << cpyName<< endl;
+  cout << strcat(cpyName,ptr); 
+  cout << "strcat..."<< endl;
+  cout<< "Copy name = " << cpyName<< endl;
+}
+
+int strlen(char *str){
+  int length = 0;
+  while(*str++){ 
+    length++;
+  }
+  return (length);
+}
+
+//strcpy
+char* strcpy(char *dest, char *source){
+
+	char* ptr = dest;//points to the end of the line
+	while(*source != '\0'){
+		*ptr++ = *source++;	//adds source to the pointer that points to dest
+	}
+	*ptr = '\0';	//holds the destination string
+	return dest;	//returned
+
+}
+
+char* strcat(char*dest,char*source){
+	char* ptr = dest + strlen(dest);//points to the end of the line
+	while(*source != '\0'){
+		*ptr++ = *source++;	//adds source to the pointer that points to dest
+	}
+	*ptr = '\0';	//holds the destination string
+	return dest;	//returned
+}

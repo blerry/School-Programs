@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:../Prog4/upDate.cpp">
+   </FileRef>
+   <FileRef
+      location = "group:../Prog4/upDate.hpp">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/berry/Documents/GitHub/School-Programs/CECS282 Advanced C++/Prog4/Prog4/myDate.cpp">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/berry/Documents/GitHub/School-Programs/CECS282 Advanced C++/Prog4/Prog4/myDate.h">
+   </FileRef>
+   <FileRef
+      location = "self:">
+   </FileRef>
+</Workspace>
